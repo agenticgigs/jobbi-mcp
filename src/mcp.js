@@ -32,6 +32,8 @@ const INSTRUCTIONS =
   "To do a gig, open its url on the originating board; Jobbi does not take claims, hold funds or pay. " +
   "lane=agent means an AI agent performs the task and is paid; lane=human means an agent is hiring a human. payout_grade (A–F) is Jobbi's confidence, from public payout evidence, that the board actually pays.";
 
+const GIG_SCHEMA = { type: "object", description: "A normalized gig record", properties: { id: { type: "string" }, title: { type: "string" }, url: { type: "string", description: "The listing on the originating board" }, source: { type: "string" }, source_key: { type: "string" }, lane: { type: "string", enum: ["agent", "human", "mixed"] }, reward: { type: "object", properties: { amount: { type: ["number", "null"] }, currency: { type: ["string", "null"] }, rail: { type: "string" } } }, acceptance: { type: ["string", "null"] }, acceptance_type: { type: "string" }, payment_state: { type: "string" }, payout_grade: { type: "string" }, expires: { type: ["string", "null"] }, claims_open: { type: "boolean" }, posted: { type: "string" }, summary: { type: "string" }, tags: { type: "array", items: { type: "string" } } }, required: ["id", "title", "url", "source", "lane", "reward", "payout_grade"] };
+
 const READ_ONLY = { readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: false };
 
 const TOOLS = [
@@ -52,6 +54,7 @@ const TOOLS = [
       },
       additionalProperties: false,
     },
+    outputSchema: { type: "object", properties: { total_matching: { type: "integer", description: "Gigs matching the filters before limit" }, returned: { type: "integer" }, generated: { type: ["string", "null"], description: "When the index was last rebuilt (ISO 8601)" }, feed_url: { type: "string" }, gigs: { type: "array", items: GIG_SCHEMA } }, required: ["total_matching", "returned", "gigs"] },
     annotations: READ_ONLY,
     icons: ICONS,
   },
@@ -59,7 +62,8 @@ const TOOLS = [
     name: "get_gig",
     title: "Get one gig",
     description: "Fetch a single gig by its Jobbi id (format source:nativeId), including the full normalized record.",
-    inputSchema: { type: "object", properties: { id: { type: "string" } }, required: ["id"], additionalProperties: false },
+    inputSchema: { type: "object", properties: { id: { type: "string", description: "Jobbi gig id in the form source:nativeId, e.g. bountyhub:cabf6b8a-… (ids come from list_gigs)" } }, required: ["id"], additionalProperties: false },
+    outputSchema: { type: "object", properties: { found: { type: "boolean" }, id: { type: "string" }, gig: { type: "object", description: "Full JSON Feed item with its _jobbi extension", additionalProperties: true } }, required: ["found"] },
     annotations: READ_ONLY,
     icons: ICONS,
   },
@@ -68,6 +72,7 @@ const TOOLS = [
     title: "List indexed boards",
     description: "List the boards Jobbi indexes, with current gig counts, home URLs and payout grades.",
     inputSchema: { type: "object", properties: {}, additionalProperties: false },
+    outputSchema: { type: "object", properties: { generated: { type: ["string", "null"] }, total: { type: "integer" }, by_lane: { type: "object", additionalProperties: { type: "integer" } }, sources: { type: "object", description: "Keyed by board key", additionalProperties: { type: "object", properties: { name: { type: "string" }, home: { type: ["string", "null"] }, count: { type: "integer" }, payout_grade: { type: ["string", "null"] } } } } }, required: ["total", "sources"] },
     annotations: READ_ONLY,
     icons: ICONS,
   },
@@ -86,6 +91,7 @@ const TOOLS = [
       },
       additionalProperties: false,
     },
+    outputSchema: { type: "object", properties: { total_matching: { type: "integer" }, returned: { type: "integer" }, web: { type: "string" }, jobs: { type: "array", items: { type: "object", properties: { title: { type: "string" }, company: { type: "string" }, location: { type: ["string", "null"] }, remote: { type: "boolean" }, salary: { type: ["string", "null"] }, posted: { type: ["string", "null"] }, url: { type: "string" } }, required: ["title", "company", "url"] } } }, required: ["total_matching", "returned", "jobs"] },
     annotations: READ_ONLY,
     icons: ICONS,
   },
