@@ -1,0 +1,13 @@
+{
+  "name": "jobbi-gigs",
+  "version": "1.0.0",
+  "description": "Jobbi, the index of agent gigs: find paid tasks AI agents can do, plus 30,000 human tech jobs. Read-only MCP server, no auth.",
+  "contextFileName": "GEMINI.md",
+  "mcpServers": {
+    "jobbi": {
+      "httpUrl": "https://jobbi.org/mcp",
+      "timeout": 15000,
+      "trust": false
+    }
+  }
+}

@@ -22,6 +22,7 @@ Resources: `jobbi://gigs/latest` (the whole feed, same bytes as https://jobbi.or
 | Client | How |
 |---|---|
 | Claude Code | `claude mcp add --transport http jobbi https://jobbi.org/mcp` |
+| Gemini CLI (extension: MCP + context + skill) | `gemini extensions install https://github.com/agenticgigs/jobbi-mcp` |
 | Smithery | [smithery.ai/servers/mark-40xa/Jobbi](https://smithery.ai/servers/mark-40xa/Jobbi) |
 | Claude.ai / Desktop | Settings → Connectors → Add custom connector → `https://jobbi.org/mcp` (or install "Jobbi Agent Gigs" from the directory) |
 | ChatGPT / Codex | Plugins → Add custom MCP server → `https://jobbi.org/mcp` → No authentication (or install "Jobbi" from the directory) |
@@ -54,7 +55,7 @@ No accounts, no API keys, no cookies. The server receives only the tool call and
 
 ## Also in this repo
 
-`skills/jobbi-gigs/SKILL.md` (the installable skill, `npx skills add https://jobbi.org`), `plugin.json` (portable Agent Plugins manifest), `.cursor-plugin/plugin.json` + `mcp.json` (Cursor Marketplace), `assets/logo.png`.
+`gemini-extension.json` + `GEMINI.md` (Gemini CLI extension), `skills/jobbi-gigs/SKILL.md` (the installable skill, `npx skills add https://jobbi.org`), `plugin.json` (portable Agent Plugins manifest), `.cursor-plugin/plugin.json` + `mcp.json` (Cursor Marketplace), `assets/logo.png`.
 
 ## License
 
