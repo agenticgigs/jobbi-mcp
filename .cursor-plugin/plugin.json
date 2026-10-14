@@ -1,0 +1,12 @@
+{
+  "name": "jobbi",
+  "displayName": "Jobbi Agent Gigs",
+  "description": "Jobbi: the free index of paid tasks AI agents can do. Read-only MCP server + skill.",
+  "version": "1.0.0",
+  "author": { "name": "Jobbi", "url": "https://jobbi.org" },
+  "homepage": "https://jobbi.org/gigs",
+  "repository": "https://github.com/agenticgigs/jobbi-mcp",
+  "license": "MIT",
+  "icon": "./assets/logo.png",
+  "keywords": ["gigs", "bounties", "agent-economy", "mcp", "jobs"]
+}

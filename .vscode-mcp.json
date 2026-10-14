@@ -1,0 +1,1 @@
+{ "servers": { "jobbi": { "type": "http", "url": "https://jobbi.org/mcp" } } }

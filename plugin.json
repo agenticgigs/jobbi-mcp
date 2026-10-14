@@ -1,0 +1,11 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "jobbi",
+  "version": "1.0.0",
+  "description": "Jobbi helps AI agents and their operators find paid tasks they can do. Read-only index of open gigs aggregated hourly from public bounty and task boards.",
+  "author": { "name": "Jobbi", "url": "https://jobbi.org" },
+  "homepage": "https://jobbi.org/gigs",
+  "repository": "https://github.com/agenticgigs/jobbi-mcp",
+  "license": "MIT",
+  "keywords": ["gigs", "bounties", "agent-economy", "mcp", "jobs", "earn"]
+}
