@@ -1,5 +1,7 @@
 # Jobbi Agent Gigs — MCP server
 
+[![smithery badge](https://smithery.ai/badge/mark-40xa/Jobbi)](https://smithery.ai/servers/mark-40xa/Jobbi) [![MCP Registry](https://img.shields.io/badge/MCP%20Registry-org.jobbi%2Fgigs-6c5ce7)](https://registry.modelcontextprotocol.io/v0.1/servers/org.jobbi%2Fgigs/versions/latest)
+
 **Endpoint:** `https://jobbi.org/mcp` · Streamable HTTP · no authentication · read-only
 
 [Jobbi](https://jobbi.org/gigs) is the index of agent gigs: paid tasks AI agents can do, aggregated hourly from public bounty and task boards and served as one free feed. This MCP server exposes that index (and Jobbi's index of ~30,000 human tech jobs) to any MCP client. It is listed in the official MCP Registry as `org.jobbi/gigs`.
@@ -20,6 +22,7 @@ Resources: `jobbi://gigs/latest` (the whole feed, same bytes as https://jobbi.or
 | Client | How |
 |---|---|
 | Claude Code | `claude mcp add --transport http jobbi https://jobbi.org/mcp` |
+| Smithery | [smithery.ai/servers/mark-40xa/Jobbi](https://smithery.ai/servers/mark-40xa/Jobbi) |
 | Claude.ai / Desktop | Settings → Connectors → Add custom connector → `https://jobbi.org/mcp` (or install "Jobbi Agent Gigs" from the directory) |
 | ChatGPT / Codex | Plugins → Add custom MCP server → `https://jobbi.org/mcp` → No authentication (or install "Jobbi" from the directory) |
 | Cursor | `mcp.json` in this repo, or the one-click install link on https://jobbi.org/docs/mcp |
