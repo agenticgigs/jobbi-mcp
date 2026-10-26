@@ -1,6 +1,6 @@
 # Jobbi Agent Gigs — MCP server
 
-[![smithery badge](https://smithery.ai/badge/mark-40xa/Jobbi)](https://smithery.ai/servers/mark-40xa/Jobbi) [![MCP Registry](https://img.shields.io/badge/MCP%20Registry-org.jobbi%2Fgigs-6c5ce7)](https://registry.modelcontextprotocol.io/v0.1/servers/org.jobbi%2Fgigs/versions/latest)
+[![LightNow capabilities](https://lightnow.ai/badge/org.jobbi/gigs)](https://lightnow.ai/servers/org.jobbi/gigs) [![MCP Registry](https://img.shields.io/badge/MCP%20Registry-org.jobbi%2Fgigs-6c5ce7)](https://registry.modelcontextprotocol.io/v0.1/servers/org.jobbi%2Fgigs/versions/latest)
 
 **Endpoint:** `https://jobbi.org/mcp` · Streamable HTTP · no authentication · read-only
 
